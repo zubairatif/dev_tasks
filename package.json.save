@@ -1,0 +1,31 @@
+{
+  "name": "dev_tasks",
+  "version": "1.0.0",
+  "description": "To-do List app for managing your projects and breaking them down into smaller tasks.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1
+        "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zubairatif/dev_tasks.git"
+  },
+  "keywords": [
+    "to-do",
+    "project-management",
+    "tasks",
+    "todo list app"
+  ],
+  "author": "Zubair Atif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zubairatif/dev_tasks/issues"
+  },
+  "homepage": "https://github.com/zubairatif/dev_tasks#readme",
+  "devDependencies": {
+    "webpack": "^5.79.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
