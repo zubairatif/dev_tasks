@@ -1,8 +1,7 @@
 const path = require("path");
-
 module.exports = {
   entry: "./src/index.ts",
-  devtool: "inline-source-map",
+  devtool: "eval-source-map",
   mode: "development",
   devServer: {
     static: {
@@ -39,8 +38,8 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"],
   },
-
   output: {
+    publicPath: "dist",
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
     clean: true,
