@@ -7,11 +7,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack serve"
+    "serve": "webpack serve"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/zubairatif/dev_tasks.git"
+    "url": "git+https://github.com/zubairatif/dev_tasks.git"
   },
   "keywords": [
     "to-do",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/zubairatif/dev_tasks#readme",
   "devDependencies": {
     "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.1",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
