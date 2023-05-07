@@ -6,12 +6,13 @@ This is a simple to-do list app created with typescript and scss.
 
 - npm modules [Date-fns](https://github.com/date-fns/date-fns)
 - webpack
-- typescript (classes & interfaces)
-- scss
+- typescript
+- local storage
+- dynamic webpages
 
 ## Live Demo
 
-hosted on [github pages](https://zubairatif.github.io/dev_tasks)
+hosted on [netlify](https://top-devtasks.netlify.app/)
 
 ## Process
 
@@ -30,6 +31,8 @@ hosted on [github pages](https://zubairatif.github.io/dev_tasks)
 
 - Create a simple display for todo and project information.
 - Add functionality to create subtasks in checklists.
+
+- More frequent commits!
 
 ## Supported Browsers
 
