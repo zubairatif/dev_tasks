@@ -1,7 +1,12 @@
-console.log("hello bird");
-import "./assets/style.scss";
-console.log("hello bird");
-
+import "./assets/style.css";
+const form = document.querySelector("form") as HTMLFormElement;
+const todoModal = document.querySelector(".todoModal") as HTMLDialogElement;
+const newButtons = document.querySelectorAll(".addNew");
+newButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    todoModal.showModal();
+  });
+});
 interface Project {
   name: string;
   todos: Todo[];
@@ -12,32 +17,32 @@ interface Todo {
   description: string;
   duedate: Date;
   priority: number;
-  notes: string;
   project?: string;
+  checklist?: string[];
 }
 
-class Todo {
+class Todo implements Todo {
   title: string;
   description: string;
   duedate: Date;
   priority: number;
-  notes: string;
   project?: string;
+  checklist?: string[];
 
   constructor(
     title: string,
     description: string,
     duedate: Date,
     priority: number,
-    notes: string,
-    project?: string
+    project?: string,
+    checklist?: string[]
   ) {
     this.title = title;
     this.description = description;
     this.duedate = duedate;
     this.priority = priority;
-    this.notes = notes;
-    this.project = project;
+    this.project = project || "Default";
+    this.checklist = checklist || [];
   }
 }
 
@@ -48,76 +53,80 @@ const projects: Project[] = [
   },
 ];
 
-// smaple
-const newTodo = new Todo(
-  "Finish project",
-  "Complete all tasks and submit before deadline",
-  new Date("2023-05-01"),
-  2,
-  "Remember to double-check all work before submission",
-  "Work"
-);
 
-if (newTodo.project) {
-  const project = projects.find((project) => project.name === newTodo.project);
-  if (project) {
-    project.todos.push(newTodo);
+function pushTodo(todo: Todo) {
+  if (todo.project) {
+    const project = projects.find((project) => project.name === todo.project);
+    if (project) {
+      project.todos.push(todo);
+    } else {
+      projects.push({
+        name: todo.project,
+        todos: [todo],
+      });
+    }
   } else {
-    projects.push({
-      name: newTodo.project,
-      todos: [newTodo],
-    });
+    projects[0].todos.push(todo);
   }
-} else {
-  projects[0].todos.push(newTodo);
 }
-console.log(projects);
-
-const form = document.querySelector("form");
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
-
+  
   const formData = new FormData(form);
-
+  
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const dueDate = new Date(formData.get("dueDate") as string);
   const priority = parseInt(formData.get("priority") as string);
-  const notes = formData.get("notes") as string;
   const project = formData.get("project") as string;
-
-  if (title && description && dueDate && !isNaN(priority) && notes) {
-    const newTodo = new Todo(
+  
+  if (title && description && dueDate && !isNaN(priority)) {
+    createTodo(title, description, dueDate, priority, project);
+  } else {
+    console.error("One or more form fields are missing or invalid.");
+  }
+  todoModal.close();
+});
+function createTodo(
+  title: string,
+  description: string,
+  dueDate: Date,
+  priority: number,
+  project: string
+  ) {
+    const sampleTodo = new Todo(
       title,
       description,
       dueDate,
       priority,
-      notes,
       project || "Default"
-    );
-    let projectExists = false;
-
-    // Check if the project already exists
-    projects.forEach((p) => {
-      if (p.name === newTodo.project) {
-        projectExists = true;
-        p.todos.push(newTodo);
-        console.log("New todo created:", newTodo);
-      }
-    });
-
-    // If the project does not exist, create it and add the todo
-    if (!projectExists) {
-      const newProject: Project = {
-        name: newTodo.project,
-        todos: [newTodo],
-      };
-      projects.push(newProject);
-      console.log("New project created:", newProject);
+      );
+      let projectExists = false;
+      
+      // Check if the project already exists
+      projects.forEach((p) => {
+        if (p.name === sampleTodo.project) {
+          projectExists = true;
+          p.todos.push(sampleTodo);
+      console.log("New todo created:", sampleTodo);
     }
-  } else {
-    console.error("One or more form fields are missing or invalid.");
+  });
+  
+  // If the project does not exist, create it and add the todo
+  if (!projectExists) {
+    const newProject: Project = {
+      name: sampleTodo.project,
+      todos: [sampleTodo],
+    };
+    projects.push(newProject);
+    console.log("New project created:", newProject);
   }
-  console.log(projects);
-});
+}
+console.log("Projects: ", projects);
+
+// add a new sub-task
+// sampleTodo.checklist.push("Submit assignment");
+
+// remove a sub-task
+// sampleTodo.checklist.splice(1, 1);

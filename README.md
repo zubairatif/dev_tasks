@@ -25,3 +25,12 @@ hosted on [github pages](https://zubairatif.github.io/dev_tasks)
 
 - functionality to add tasks.
 - saving and retrieving tasks from local storage.
+
+### Roadmap & Notes
+
+- Create a simple display for todo and project information.
+- Add functionality to create subtasks in checklists.
+
+## Supported Browsers
+
+Latest versions of Firefox (limited support due to :has()), Chrome, and Safari.

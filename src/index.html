@@ -7,45 +7,52 @@
     <script defer src="main.js"></script>
   </head>
   <body>
-    <h1>Hello, ts, scss, and webpack</h1>
-    <form>
-      <div class="fieldContainer">
-        <label for="todoTitle">Title</label>
-        <input
-          type="text"
-          id="todoTitle"
-          name="title"
-          placeholder="Title"
-          required
-        />
-      </div>
-      <div class="fieldContainer">
-        <label for="todoDesc">Description </label>
-        <textarea type="text" id="todoDesc" name="description"> </textarea>
-      </div>
-      <label>Due Date <input type="date" name="dueDate" id="todoDate" /></label>
-      <label
-        >Priority
-        <select name="priority" id="todoPriority">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select></label
-      >
-      <div class="fieldContainer">
-        <label for="todoNotes"> </label>
-        <textarea type="text" id="todoNotes" name="notes"> </textarea>
-      </div>
-      <div class="fieldContainer">
-        <label for="todoProject">Project</label>
-        <input
-          type="text"
-          id="todoProject"
-          name="project"
-          placeholder="Project (optional)"
-        />
-      </div>
-      <button type="submit">Add Todo</button>
-    </form>
+    <header>
+      <h1>DevTasks</h1>
+      <nav>Navigation</nav>
+    </header>
+    <main>
+      <h2>Todo's</h2>
+      <button class="addNew">New</button>
+    </main>
+    <dialog class="todoModal">
+      <form method="dialog">
+        <div class="fieldContainer">
+          <label for="todoTitle">Title</label>
+          <input
+            type="text"
+            id="todoTitle"
+            name="title"
+            placeholder="Title"
+            required
+          />
+        </div>
+        <div class="fieldContainer">
+          <label for="todoDesc">Description </label>
+          <textarea type="text" id="todoDesc" name="description"> </textarea>
+        </div>
+        <label
+          >Due Date <input type="date" name="dueDate" id="todoDate"
+        /></label>
+        <label
+          >Priority
+          <select name="priority" id="todoPriority">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select></label
+        >
+        <div class="fieldContainer">
+          <label for="todoProject">Project</label>
+          <input
+            type="text"
+            id="todoProject"
+            name="project"
+            placeholder="Project (optional)"
+          />
+        </div>
+        <button type="submit">Add Todo</button>
+      </form>
+    </dialog>
   </body>
 </html>
