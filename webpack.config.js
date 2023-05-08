@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
-
   devtool: "eval-source-map",
   mode: "development",
   devServer: {

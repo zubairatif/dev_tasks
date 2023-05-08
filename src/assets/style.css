@@ -77,6 +77,27 @@
   src: url("fonts/ubuntu/ubuntu-regular.woff2") format("woff2");
   font-weight: 400;
 }
+/* --- Global Variables--- */
+:root {
+  --blue: #3f14db;
+  --blue-5: #6543e2;
+  --blue-7: #290d8e;
+
+  --violet: #6707dc;
+  --violet-1: #d1b5f5;
+  --violet-3: #b383ee;
+  --violet-5: #9551e7;
+  --violet-7: #5206b0;
+  --violet-9: #34046e;
+
+  --orange: #de4b12;
+  --orange-3: #ed9c7d;
+  --orange-7: #bd400f;
+  --orange-9: #591e07;
+
+  --red: #b00020;
+  --green: #09af00;
+}
 
 /* ---Global--- */
 *,
